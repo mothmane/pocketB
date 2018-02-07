@@ -24,7 +24,7 @@ relationship OneToOne {
 	Account{type} to AccountType,
     Account{rib} to RIB
 }
-/******** **********/
+
 /******* RIB ********/
 entity RIB{
     iban String,
@@ -40,7 +40,7 @@ relationship OneToOne {
 	RIB{bankReference} to BankReference
    // RIB{holder} to Customer
 }
-/************/
+
 /*********** Card ***********/
 
 entity Card{
@@ -66,7 +66,7 @@ Card{status} to CardStatus,
 Card{accountDebited} to Account
 }
 
-/***********************/
+
 
 entity Operation{
 	ammount Double,
@@ -117,7 +117,7 @@ relationship ManyToOne{
 	BeneficiaryAccount{account} to Account
 }
 
-/**************************************/
+
 entity Credit {
 	capitalDue Double,
 	dueAmount Double,
@@ -131,7 +131,7 @@ enum CreditType{
 relationship OneToOne {
 	Credit{type} to CreditType
 }
-/**************************************/
+
 /************** Report *****************/
 entity Report{
 	message String
@@ -143,7 +143,7 @@ relationship OneToOne{
 	Report{type} to ReportType
 }
 
-/**************************************/
+
 /************ Notifications ***********/
 entity Notification{
 	title String,
