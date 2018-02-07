@@ -1,0 +1,153 @@
+/******** Customer Account **********/
+entity Customer {
+	firstName String,
+	lastName String,
+	birthday Date
+}
+
+relationship OneToMany {
+	Customer{accounts} to Account,
+    Customer{credits} to Credit, 
+    Customer{notifications} to Notification,
+    Customer{reports} to Report
+}
+
+entity Account{
+	name String,
+    solde Double,
+    lastDateCheck Date,
+}
+enum AccountType{
+   CHECKING,SAVINGS,CD,MONEY_MARKET,IRAS
+}
+relationship OneToOne {
+	Account{type} to AccountType,
+    Account{rib} to RIB
+}
+/******** **********/
+/******* RIB ********/
+entity RIB{
+    iban String,
+	bic String
+}
+entity BankReference{
+	bankCode String,
+	boxCode String,
+	accountNumber String,
+	ribKey String	
+}
+relationship OneToOne {
+	RIB{bankReference} to BankReference
+   // RIB{holder} to Customer
+}
+/************/
+/*********** Card ***********/
+
+entity Card{
+	number String,
+	mouthlyPaiementCapacity Double,
+    engagedPaiment Double,
+    // check if it's linked to an account or many 
+   // numAccountDebited String,
+    expiryDate Date
+    
+    
+}
+enum CardStatus{
+	ACTIVE,INACTIVE
+}
+enum CardContactLessStatus{
+	ACTIVE,INACTIVE
+}
+
+relationship OneToOne{
+Card{contactLessStatus} to CardContactLessStatus,
+Card{status} to CardStatus,
+Card{accountDebited} to Account
+}
+
+/***********************/
+
+entity Operation{
+	ammount Double,
+    motif String,
+	details String,  
+    date Date
+  
+}
+
+entity RetreatCapacity{
+	globalCapacity Double,
+}
+entity CapacityDetail{
+	description String,
+	ammount Double,
+}
+relationship OneToOne {
+	Card{retreatCapacity} to RetreatCapacity
+}
+relationship OneToMany{
+	Card{operations} to Operation,
+	RetreatCapacity{capacityDetails} to CapacityDetail
+}
+
+/**
+*
+*Transfert
+*/
+entity Transfert{
+	amount Double,
+    date Date,
+    motif String,
+    description String
+}
+
+enum TransfertType {
+ PUNCTUAL,PERMANENT
+}
+relationship OneToOne{ 
+	Transfert{transmitter} to Account,
+	Transfert{beneficiary} to BeneficiaryAccount,
+    Transfert{type} to TransfertType
+}
+entity BeneficiaryAccount{
+	label String,
+}
+relationship ManyToOne{ 
+	BeneficiaryAccount{account} to Account
+}
+
+/**************************************/
+entity Credit {
+	capitalDue Double,
+	dueAmount Double,
+	duration Integer,
+	endingDate Date
+}
+enum CreditType{
+	IMMEDIATE,DIFFERED
+}
+
+relationship OneToOne {
+	Credit{type} to CreditType
+}
+/**************************************/
+/************** Report *****************/
+entity Report{
+	message String
+}
+enum ReportType{
+	STOLEN,LOST
+}
+relationship OneToOne{
+	Report{type} to ReportType
+}
+
+/**************************************/
+/************ Notifications ***********/
+entity Notification{
+	title String,
+	date Date,
+	object String,
+	description String
+}
