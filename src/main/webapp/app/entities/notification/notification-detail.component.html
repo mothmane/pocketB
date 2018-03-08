@@ -1,0 +1,44 @@
+
+<div *ngIf="notification">
+    <h2><span jhiTranslate="pocketBApp.notification.detail.title">Notification</span> {{notification.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pocketBApp.notification.title">Title</span></dt>
+        <dd>
+            <span>{{notification.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.notification.date">Date</span></dt>
+        <dd>
+            <span>{{notification.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.notification.object">Object</span></dt>
+        <dd>
+            <span>{{notification.object}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.notification.description">Description</span></dt>
+        <dd>
+            <span>{{notification.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.notification.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="notification.customer">
+                <a [routerLink]="['/customer', notification.customer?.id]">{{notification.customer?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'notification/'+ notification.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,38 @@
+
+<div *ngIf="bankReference">
+    <h2><span jhiTranslate="pocketBApp.bankReference.detail.title">Bank Reference</span> {{bankReference.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pocketBApp.bankReference.bankCode">Bank Code</span></dt>
+        <dd>
+            <span>{{bankReference.bankCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.bankReference.boxCode">Box Code</span></dt>
+        <dd>
+            <span>{{bankReference.boxCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.bankReference.accountNumber">Account Number</span></dt>
+        <dd>
+            <span>{{bankReference.accountNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.bankReference.ribKey">Rib Key</span></dt>
+        <dd>
+            <span>{{bankReference.ribKey}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'bank-reference/'+ bankReference.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

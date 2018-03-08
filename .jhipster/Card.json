@@ -1,0 +1,62 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "accountDebited",
+            "otherEntityName": "clientAccount",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "card"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "retreatCapacity",
+            "otherEntityName": "retreatCapacity",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "card"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "operations",
+            "otherEntityName": "operation",
+            "otherEntityRelationshipName": "card"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mouthlyPaiementCapacity",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "engagedPaiment",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "CardStatus",
+            "fieldValues": "ACTIVE,INACTIVE"
+        },
+        {
+            "fieldName": "contactLessStatus",
+            "fieldType": "CardContactLessStatus",
+            "fieldValues": "ACTIVE,INACTIVE"
+        },
+        {
+            "fieldName": "expiryLocalDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180308193509",
+    "javadoc": "Card",
+    "entityTableName": "card",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,28 @@
+
+{
+    "pocketBApp": {
+        "transfert" : {
+            "home": {
+                "title": "Transferts",
+                "createLabel": "Créer un nouveau Transfert",
+                "createOrEditLabel": "Créer ou éditer un Transfert"
+            },
+            "created": "Un nouveau Transfert a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Transfert avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Transfert avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Transfert {{ id }} ?"
+            },
+            "detail": {
+                "title": "Transfert"
+            },
+            "amount": "Amount",
+            "date": "Date",
+            "motif": "Motif",
+            "description": "Description",
+            "type": "Type",
+            "transmitter": "Transmitter",
+            "beneficiary": "Beneficiary"
+        }
+    }
+}

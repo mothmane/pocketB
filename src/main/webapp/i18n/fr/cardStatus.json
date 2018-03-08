@@ -1,0 +1,9 @@
+{
+    "pocketBApp": {
+        "CardStatus" : {
+            "null": "",
+            "ACTIVE": "ACTIVE",
+            "INACTIVE": "INACTIVE"
+        }
+    }
+}

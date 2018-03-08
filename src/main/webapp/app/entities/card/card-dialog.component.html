@@ -1,0 +1,78 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCardLabel" jhiTranslate="pocketBApp.card.home.createOrEditLabel">Create or edit a Card</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!card.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="card.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.card.number" for="field_number">Number</label>
+            <input type="text" class="form-control" name="number" id="field_number"
+                [(ngModel)]="card.number" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.card.mouthlyPaiementCapacity" for="field_mouthlyPaiementCapacity">Mouthly Paiement Capacity</label>
+            <input type="number" class="form-control" name="mouthlyPaiementCapacity" id="field_mouthlyPaiementCapacity"
+                [(ngModel)]="card.mouthlyPaiementCapacity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.card.engagedPaiment" for="field_engagedPaiment">Engaged Paiment</label>
+            <input type="number" class="form-control" name="engagedPaiment" id="field_engagedPaiment"
+                [(ngModel)]="card.engagedPaiment" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.card.status" for="field_status">Status</label>
+            <select class="form-control" name="status" [(ngModel)]="card.status" id="field_status" >
+                <option value="ACTIVE">{{'pocketBApp.CardStatus.ACTIVE' | translate}}</option>
+                <option value="INACTIVE">{{'pocketBApp.CardStatus.INACTIVE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.card.contactLessStatus" for="field_contactLessStatus">Contact Less Status</label>
+            <select class="form-control" name="contactLessStatus" [(ngModel)]="card.contactLessStatus" id="field_contactLessStatus" >
+                <option value="ACTIVE">{{'pocketBApp.CardContactLessStatus.ACTIVE' | translate}}</option>
+                <option value="INACTIVE">{{'pocketBApp.CardContactLessStatus.INACTIVE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.card.expiryLocalDate" for="field_expiryLocalDate">Expiry Local Date</label>
+            <div class="input-group">
+                <input id="field_expiryLocalDate" type="text" class="form-control" name="expiryLocalDate" ngbDatepicker  #expiryLocalDateDp="ngbDatepicker" [(ngModel)]="card.expiryLocalDate"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="expiryLocalDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.card.accountDebited" for="field_accountDebited">Account Debited</label>
+            <select class="form-control" id="field_accountDebited" name="accountDebited" [(ngModel)]="card.accountDebited">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="clientAccountOption.id === card.accountDebited?.id ? card.accountDebited : clientAccountOption" *ngFor="let clientAccountOption of accountdebiteds; trackBy: trackClientAccountById">{{clientAccountOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.card.retreatCapacity" for="field_retreatCapacity">Retreat Capacity</label>
+            <select class="form-control" id="field_retreatCapacity" name="retreatCapacity" [(ngModel)]="card.retreatCapacity">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="retreatCapacityOption.id === card.retreatCapacity?.id ? card.retreatCapacity : retreatCapacityOption" *ngFor="let retreatCapacityOption of retreatcapacities; trackBy: trackRetreatCapacityById">{{retreatCapacityOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

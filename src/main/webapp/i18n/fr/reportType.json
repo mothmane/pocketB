@@ -1,0 +1,9 @@
+{
+    "pocketBApp": {
+        "ReportType" : {
+            "null": "",
+            "STOLEN": "STOLEN",
+            "LOST": "LOST"
+        }
+    }
+}

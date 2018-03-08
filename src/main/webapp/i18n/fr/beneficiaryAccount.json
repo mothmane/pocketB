@@ -1,0 +1,23 @@
+
+{
+    "pocketBApp": {
+        "beneficiaryAccount" : {
+            "home": {
+                "title": "BeneficiaryAccounts",
+                "createLabel": "Créer un nouveau Beneficiary Account",
+                "createOrEditLabel": "Créer ou éditer un Beneficiary Account"
+            },
+            "created": "Un nouveau Beneficiary Account a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Beneficiary Account avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Beneficiary Account avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Beneficiary Account {{ id }} ?"
+            },
+            "detail": {
+                "title": "Beneficiary Account"
+            },
+            "label": "Label",
+            "account": "Account"
+        }
+    }
+}

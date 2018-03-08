@@ -1,0 +1,36 @@
+
+<div *ngIf="report">
+    <h2><span jhiTranslate="pocketBApp.report.detail.title">Report</span> {{report.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pocketBApp.report.message">Message</span></dt>
+        <dd>
+            <span>{{report.message}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.report.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'pocketBApp.ReportType.' + report.type}}">{{report.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.report.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="report.customer">
+                <a [routerLink]="['/customer', report.customer?.id]">{{report.customer?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'report/'+ report.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

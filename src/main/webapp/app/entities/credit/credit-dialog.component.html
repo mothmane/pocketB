@@ -1,0 +1,64 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCreditLabel" jhiTranslate="pocketBApp.credit.home.createOrEditLabel">Create or edit a Credit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!credit.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="credit.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.credit.capitalDue" for="field_capitalDue">Capital Due</label>
+            <input type="number" class="form-control" name="capitalDue" id="field_capitalDue"
+                [(ngModel)]="credit.capitalDue" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.credit.dueAmount" for="field_dueAmount">Due Amount</label>
+            <input type="number" class="form-control" name="dueAmount" id="field_dueAmount"
+                [(ngModel)]="credit.dueAmount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.credit.duration" for="field_duration">Duration</label>
+            <input type="number" class="form-control" name="duration" id="field_duration"
+                [(ngModel)]="credit.duration" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.credit.endingLocalDate" for="field_endingLocalDate">Ending Local Date</label>
+            <div class="input-group">
+                <input id="field_endingLocalDate" type="text" class="form-control" name="endingLocalDate" ngbDatepicker  #endingLocalDateDp="ngbDatepicker" [(ngModel)]="credit.endingLocalDate"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="endingLocalDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.credit.type" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="credit.type" id="field_type" >
+                <option value="IMMEDIATE">{{'pocketBApp.CreditType.IMMEDIATE' | translate}}</option>
+                <option value="DIFFERED">{{'pocketBApp.CreditType.DIFFERED' | translate}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.credit.customer" for="field_customer">Customer</label>
+            <select class="form-control" id="field_customer" name="customer" [(ngModel)]="credit.customer" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customerOption.id === credit.customer?.id ? credit.customer : customerOption" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,71 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTransfertLabel" jhiTranslate="pocketBApp.transfert.home.createOrEditLabel">Create or edit a Transfert</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!transfert.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="transfert.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.transfert.amount" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                [(ngModel)]="transfert.amount" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.transfert.date" for="field_date">Date</label>
+            <div class="input-group">
+                <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker  #dateDp="ngbDatepicker" [(ngModel)]="transfert.date"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.transfert.motif" for="field_motif">Motif</label>
+            <input type="text" class="form-control" name="motif" id="field_motif"
+                [(ngModel)]="transfert.motif" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.transfert.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="transfert.description" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.transfert.type" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="transfert.type" id="field_type" >
+                <option value="PUNCTUAL">{{'pocketBApp.TransfertType.PUNCTUAL' | translate}}</option>
+                <option value="PERMANENT">{{'pocketBApp.TransfertType.PERMANENT' | translate}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.transfert.transmitter" for="field_transmitter">Transmitter</label>
+            <select class="form-control" id="field_transmitter" name="transmitter" [(ngModel)]="transfert.transmitter">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="clientAccountOption.id === transfert.transmitter?.id ? transfert.transmitter : clientAccountOption" *ngFor="let clientAccountOption of transmitters; trackBy: trackClientAccountById">{{clientAccountOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="pocketBApp.transfert.beneficiary" for="field_beneficiary">Beneficiary</label>
+            <select class="form-control" id="field_beneficiary" name="beneficiary" [(ngModel)]="transfert.beneficiary">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="beneficiaryAccountOption.id === transfert.beneficiary?.id ? transfert.beneficiary : beneficiaryAccountOption" *ngFor="let beneficiaryAccountOption of beneficiaries; trackBy: trackBeneficiaryAccountById">{{beneficiaryAccountOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

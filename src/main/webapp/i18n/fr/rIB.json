@@ -1,0 +1,24 @@
+
+{
+    "pocketBApp": {
+        "rIB" : {
+            "home": {
+                "title": "RIBS",
+                "createLabel": "Créer un nouveau RIB",
+                "createOrEditLabel": "Créer ou éditer un RIB"
+            },
+            "created": "Un nouveau RIB a été créé avec l'identifiant {{ param }}",
+            "updated": "Le RIB avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le RIB avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le RIB {{ id }} ?"
+            },
+            "detail": {
+                "title": "RIB"
+            },
+            "iban": "Iban",
+            "bic": "Bic",
+            "bankReference": "Bank Reference"
+        }
+    }
+}

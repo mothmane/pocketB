@@ -1,0 +1,9 @@
+{
+    "pocketBApp": {
+        "CardContactLessStatus" : {
+            "null": "",
+            "ACTIVE": "ACTIVE",
+            "INACTIVE": "INACTIVE"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "pocketBApp": {
+        "TransfertType" : {
+            "null": "",
+            "PUNCTUAL": "PUNCTUAL",
+            "PERMANENT": "PERMANENT"
+        }
+    }
+}

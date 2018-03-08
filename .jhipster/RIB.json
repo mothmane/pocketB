@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bankReference",
+            "otherEntityName": "bankReference",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "rIB"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "iban",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bic",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180308193507",
+    "javadoc": "RIB",
+    "entityTableName": "rib",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

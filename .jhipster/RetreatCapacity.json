@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "capacityDetails",
+            "otherEntityName": "capacityDetails",
+            "otherEntityRelationshipName": "retreatCapacity"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "globalCapacity",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20180308193511",
+    "entityTableName": "retreat_capacity",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,23 @@
+
+{
+    "pocketBApp": {
+        "retreatCapacity" : {
+            "home": {
+                "title": "RetreatCapacities",
+                "createLabel": "Créer un nouveau Retreat Capacity",
+                "createOrEditLabel": "Créer ou éditer un Retreat Capacity"
+            },
+            "created": "Un nouveau Retreat Capacity a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Retreat Capacity avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Retreat Capacity avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Retreat Capacity {{ id }} ?"
+            },
+            "detail": {
+                "title": "Retreat Capacity"
+            },
+            "globalCapacity": "Global Capacity",
+            "capacityDetails": "Capacity Details"
+        }
+    }
+}

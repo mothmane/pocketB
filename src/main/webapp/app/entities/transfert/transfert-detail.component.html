@@ -1,0 +1,54 @@
+
+<div *ngIf="transfert">
+    <h2><span jhiTranslate="pocketBApp.transfert.detail.title">Transfert</span> {{transfert.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pocketBApp.transfert.amount">Amount</span></dt>
+        <dd>
+            <span>{{transfert.amount}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.transfert.date">Date</span></dt>
+        <dd>
+            <span>{{transfert.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.transfert.motif">Motif</span></dt>
+        <dd>
+            <span>{{transfert.motif}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.transfert.description">Description</span></dt>
+        <dd>
+            <span>{{transfert.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.transfert.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'pocketBApp.TransfertType.' + transfert.type}}">{{transfert.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.transfert.transmitter">Transmitter</span></dt>
+        <dd>
+            <div *ngIf="transfert.transmitter">
+                <a [routerLink]="['/client-account', transfert.transmitter?.id]">{{transfert.transmitter?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.transfert.beneficiary">Beneficiary</span></dt>
+        <dd>
+            <div *ngIf="transfert.beneficiary">
+                <a [routerLink]="['/beneficiary-account', transfert.beneficiary?.id]">{{transfert.beneficiary?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'transfert/'+ transfert.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

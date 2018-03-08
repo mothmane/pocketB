@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="pocketBApp.clientAccount.home.title">Client Accounts</span>
+        <button class="btn btn-primary float-right jh-create-entity create-client-account" [routerLink]="['/', { outlets: { popup: ['client-account-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="pocketBApp.clientAccount.home.createLabel">
+            Create new Client Account
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="clientAccounts">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="pocketBApp.clientAccount.name">Name</span></th>
+            <th><span jhiTranslate="pocketBApp.clientAccount.solde">Solde</span></th>
+            <th><span jhiTranslate="pocketBApp.clientAccount.lastLocalDateCheck">Last Local Date Check</span></th>
+            <th><span jhiTranslate="pocketBApp.clientAccount.type">Type</span></th>
+            <th><span jhiTranslate="pocketBApp.clientAccount.customer">Customer</span></th>
+            <th><span jhiTranslate="pocketBApp.clientAccount.rib">Rib</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let clientAccount of clientAccounts ;trackBy: trackId">
+                <td><a [routerLink]="['../client-account', clientAccount.id ]">{{clientAccount.id}}</a></td>
+                <td>{{clientAccount.name}}</td>
+                <td>{{clientAccount.solde}}</td>
+                <td>{{clientAccount.lastLocalDateCheck | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'pocketBApp.AccountType.' + clientAccount.type}}">{{clientAccount.type}}</td>
+                <td>
+                    <div *ngIf="clientAccount.customer">
+                        <a [routerLink]="['../customer', clientAccount.customer?.id ]" >{{clientAccount.customer?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="clientAccount.rib">
+                        <a [routerLink]="['../rib', clientAccount.rib?.id ]" >{{clientAccount.rib?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../client-account', clientAccount.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'client-account/'+ clientAccount.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'client-account/'+ clientAccount.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

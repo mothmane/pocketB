@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span jhiTranslate="pocketBApp.bankReference.home.title">Bank References</span>
+        <button class="btn btn-primary float-right jh-create-entity create-bank-reference" [routerLink]="['/', { outlets: { popup: ['bank-reference-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="pocketBApp.bankReference.home.createLabel">
+            Create new Bank Reference
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="bankReferences">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="pocketBApp.bankReference.bankCode">Bank Code</span></th>
+            <th><span jhiTranslate="pocketBApp.bankReference.boxCode">Box Code</span></th>
+            <th><span jhiTranslate="pocketBApp.bankReference.accountNumber">Account Number</span></th>
+            <th><span jhiTranslate="pocketBApp.bankReference.ribKey">Rib Key</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let bankReference of bankReferences ;trackBy: trackId">
+                <td><a [routerLink]="['../bank-reference', bankReference.id ]">{{bankReference.id}}</a></td>
+                <td>{{bankReference.bankCode}}</td>
+                <td>{{bankReference.boxCode}}</td>
+                <td>{{bankReference.accountNumber}}</td>
+                <td>{{bankReference.ribKey}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../bank-reference', bankReference.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'bank-reference/'+ bankReference.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'bank-reference/'+ bankReference.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

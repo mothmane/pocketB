@@ -1,0 +1,24 @@
+
+{
+    "pocketBApp": {
+        "capacityDetails" : {
+            "home": {
+                "title": "CapacityDetails",
+                "createLabel": "Créer un nouveau Capacity Details",
+                "createOrEditLabel": "Créer ou éditer un Capacity Details"
+            },
+            "created": "Un nouveau Capacity Details a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Capacity Details avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Capacity Details avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Capacity Details {{ id }} ?"
+            },
+            "detail": {
+                "title": "Capacity Details"
+            },
+            "description": "Description",
+            "ammount": "Ammount",
+            "retreatCapacity": "Retreat Capacity"
+        }
+    }
+}

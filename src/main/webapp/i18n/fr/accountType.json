@@ -1,0 +1,12 @@
+{
+    "pocketBApp": {
+        "AccountType" : {
+            "null": "",
+            "CHECKING": "CHECKING",
+            "SAVINGS": "SAVINGS",
+            "CD": "CD",
+            "MONEY_MARKET": "MONEY_MARKET",
+            "IRAS": "IRAS"
+        }
+    }
+}

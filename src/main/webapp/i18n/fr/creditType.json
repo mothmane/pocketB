@@ -1,0 +1,9 @@
+{
+    "pocketBApp": {
+        "CreditType" : {
+            "null": "",
+            "IMMEDIATE": "IMMEDIATE",
+            "DIFFERED": "DIFFERED"
+        }
+    }
+}

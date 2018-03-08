@@ -1,0 +1,25 @@
+
+{
+    "pocketBApp": {
+        "bankReference" : {
+            "home": {
+                "title": "BankReferences",
+                "createLabel": "Créer un nouveau Bank Reference",
+                "createOrEditLabel": "Créer ou éditer un Bank Reference"
+            },
+            "created": "Un nouveau Bank Reference a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Bank Reference avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Bank Reference avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Bank Reference {{ id }} ?"
+            },
+            "detail": {
+                "title": "Bank Reference"
+            },
+            "bankCode": "Bank Code",
+            "boxCode": "Box Code",
+            "accountNumber": "Account Number",
+            "ribKey": "Rib Key"
+        }
+    }
+}

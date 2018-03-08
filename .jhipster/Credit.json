@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "capitalDue",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dueAmount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "endingLocalDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "CreditType",
+            "fieldValues": "IMMEDIATE,DIFFERED"
+        }
+    ],
+    "changelogDate": "20180308193515",
+    "entityTableName": "credit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

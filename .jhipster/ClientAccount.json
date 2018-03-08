@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "rib",
+            "otherEntityName": "rIB",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "clientAccount"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "solde",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lastLocalDateCheck",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "AccountType",
+            "fieldValues": "CHECKING,SAVINGS,CD,MONEY_MARKET,IRAS"
+        }
+    ],
+    "changelogDate": "20180308193506",
+    "entityTableName": "client_account",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

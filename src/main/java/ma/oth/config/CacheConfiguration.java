@@ -45,6 +45,25 @@ public class CacheConfiguration {
             cm.createCache(ma.oth.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(ma.oth.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(ma.oth.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Customer.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Customer.class.getName() + ".accounts", jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Customer.class.getName() + ".credits", jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Customer.class.getName() + ".notifications", jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Customer.class.getName() + ".reports", jcacheConfiguration);
+            cm.createCache(ma.oth.domain.ClientAccount.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.RIB.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.BankReference.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Card.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Card.class.getName() + ".operations", jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Operation.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.RetreatCapacity.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.RetreatCapacity.class.getName() + ".capacityDetails", jcacheConfiguration);
+            cm.createCache(ma.oth.domain.CapacityDetails.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Transfert.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.BeneficiaryAccount.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Credit.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Report.class.getName(), jcacheConfiguration);
+            cm.createCache(ma.oth.domain.Notification.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

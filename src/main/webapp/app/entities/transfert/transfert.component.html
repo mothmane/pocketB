@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span jhiTranslate="pocketBApp.transfert.home.title">Transferts</span>
+        <button class="btn btn-primary float-right jh-create-entity create-transfert" [routerLink]="['/', { outlets: { popup: ['transfert-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="pocketBApp.transfert.home.createLabel">
+            Create new Transfert
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="transferts">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="pocketBApp.transfert.amount">Amount</span></th>
+            <th><span jhiTranslate="pocketBApp.transfert.date">Date</span></th>
+            <th><span jhiTranslate="pocketBApp.transfert.motif">Motif</span></th>
+            <th><span jhiTranslate="pocketBApp.transfert.description">Description</span></th>
+            <th><span jhiTranslate="pocketBApp.transfert.type">Type</span></th>
+            <th><span jhiTranslate="pocketBApp.transfert.transmitter">Transmitter</span></th>
+            <th><span jhiTranslate="pocketBApp.transfert.beneficiary">Beneficiary</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let transfert of transferts ;trackBy: trackId">
+                <td><a [routerLink]="['../transfert', transfert.id ]">{{transfert.id}}</a></td>
+                <td>{{transfert.amount}}</td>
+                <td>{{transfert.date | date:'mediumDate'}}</td>
+                <td>{{transfert.motif}}</td>
+                <td>{{transfert.description}}</td>
+                <td jhiTranslate="{{'pocketBApp.TransfertType.' + transfert.type}}">{{transfert.type}}</td>
+                <td>
+                    <div *ngIf="transfert.transmitter">
+                        <a [routerLink]="['../client-account', transfert.transmitter?.id ]" >{{transfert.transmitter?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="transfert.beneficiary">
+                        <a [routerLink]="['../beneficiary-account', transfert.beneficiary?.id ]" >{{transfert.beneficiary?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../transfert', transfert.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'transfert/'+ transfert.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'transfert/'+ transfert.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

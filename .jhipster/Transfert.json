@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "transmitter",
+            "otherEntityName": "clientAccount",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transfert"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "beneficiary",
+            "otherEntityName": "beneficiaryAccount",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transfert"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "motif",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TransfertType",
+            "fieldValues": "PUNCTUAL,PERMANENT"
+        }
+    ],
+    "changelogDate": "20180308193513",
+    "javadoc": "Transfert",
+    "entityTableName": "transfert",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

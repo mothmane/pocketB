@@ -7,6 +7,19 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entités",
+                "customer": "Customer",
+                "clientAccount": "Client Account",
+                "rib": "RIB",
+                "bankReference": "Bank Reference",
+                "card": "Card",
+                "operation": "Operation",
+                "retreatCapacity": "Retreat Capacity",
+                "capacityDetails": "Capacity Details",
+                "transfert": "Transfert",
+                "beneficiaryAccount": "Beneficiary Account",
+                "credit": "Credit",
+                "report": "Report",
+                "notification": "Notification",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

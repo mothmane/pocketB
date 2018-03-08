@@ -1,0 +1,36 @@
+
+<div *ngIf="rIB">
+    <h2><span jhiTranslate="pocketBApp.rIB.detail.title">RIB</span> {{rIB.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="pocketBApp.rIB.iban">Iban</span></dt>
+        <dd>
+            <span>{{rIB.iban}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.rIB.bic">Bic</span></dt>
+        <dd>
+            <span>{{rIB.bic}}</span>
+        </dd>
+        <dt><span jhiTranslate="pocketBApp.rIB.bankReference">Bank Reference</span></dt>
+        <dd>
+            <div *ngIf="rIB.bankReference">
+                <a [routerLink]="['/bank-reference', rIB.bankReference?.id]">{{rIB.bankReference?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'rib/'+ rIB.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

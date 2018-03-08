@@ -5,6 +5,29 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193505_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193506_added_entity_ClientAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193507_added_entity_RIB.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193508_added_entity_BankReference.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193509_added_entity_Card.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193510_added_entity_Operation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193511_added_entity_RetreatCapacity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193512_added_entity_CapacityDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193513_added_entity_Transfert.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193514_added_entity_BeneficiaryAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193515_added_entity_Credit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193516_added_entity_Report.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193517_added_entity_Notification.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180308193506_added_entity_constraints_ClientAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193507_added_entity_constraints_RIB.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193509_added_entity_constraints_Card.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193510_added_entity_constraints_Operation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193512_added_entity_constraints_CapacityDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193513_added_entity_constraints_Transfert.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193514_added_entity_constraints_BeneficiaryAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193515_added_entity_constraints_Credit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193516_added_entity_constraints_Report.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180308193517_added_entity_constraints_Notification.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

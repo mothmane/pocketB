@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "bankCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "boxCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accountNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ribKey",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180308193508",
+    "entityTableName": "bank_reference",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}
